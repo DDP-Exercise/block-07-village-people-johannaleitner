@@ -1,4 +1,7 @@
 "use strict";
+
+import Village from "./class.village.js";
+
 /**
  * Create a Building class. Each Building should have
  * - a name
@@ -17,3 +20,62 @@
  *        resident remaining in the building.
  * - listAllResidents() for the Citizen Directory.
  */
+
+export default class Building{
+    constructor(name, capacity) {
+        this.name = name;
+        this.capacity = capacity;
+        this.residents = [];
+    }
+
+    addResident(citizen) {
+        if (this.residents.length < this.capacity) { // wenn array in residenc zahl größer als kapazität die des gebäude fassen kann; ausi haun; push
+            this.residents.push(citizen);
+            citizen.home = this;
+            return true;
+        } else {
+            return (this.makeSpaceFor(citizen));
+        }
+    }
+
+    removeResident(citizen) {
+        //TODO: If nobles! in makeSpaceFor Methode
+        this.residents.splice(this.residents.indexOf(citizen), 1); // löscht entsprechenden eintrag aus array
+        citizen.home = null;
+    }
+
+    findLowestResident() {
+        if (this.residents.length) {
+            let lowestResident = this.residents[0];
+            for (const resident of this.residents) {
+                if (resident.rank > lowestResident.rank)
+                    lowestResident = resident;
+            }
+            return lowestResident;
+        }
+        return null;
+    }
+
+    makeSpaceFor(citizen) {
+        let lowest = this.findLowestResident();
+        if (lowest && citizen.rank < lowest.rank) {
+            this.removeResident(lowest);
+            this.addResident(citizen);
+            return true;
+        }
+        return false;
+    }
+
+    //TODO:
+    listAllResidents() {
+        console.log(
+            "%cResidents of " + this.name + " (" +
+            this.residents.length + "/" +
+            this.capacity + "):",
+            "background-color: yellow; color: black"
+        );
+        for (const citizen of this.residents) {
+            console.log(String(citizen));
+        }
+    }
+}

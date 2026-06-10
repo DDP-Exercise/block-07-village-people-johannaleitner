@@ -23,7 +23,7 @@ import Village from "./class.village.js";
  *    Just add other files ot make it work.
  *    How? Find a way, or you will hang coming tuesday!
  *
- *    The royal servants - 980-06-01
+ *    Joe - The royal servants - 980-06-01
  *  *******************************************************/
 
 
@@ -31,7 +31,7 @@ import Village from "./class.village.js";
  * The King wants to test your program with his newest village: Steyr
  * Obviously, you should write a class, so we can create villages.
  * **/
-let steyr = new Village("Steyr");
+let steyr = new Village("Steyr"); // neue klasse village erstellt; siehe class.village.js
 
 /**
  * The royal administration then wants to add Buildings to a new village.
@@ -57,9 +57,9 @@ steyr.addBuilding("Bummerlhaus", 10);
 let citizens = ["Lorenzo Musetti", "Elina Svitolina", "Belinda Bencic", "Ben Shelton", "Denis Shapovalov",
     "Naomi Osaka", "Casper Ruud", "Andrey Rublev", "Tommy Paul", "Tallon Griekspoor", "Anastasia Potapova", "Maria Sakkari",
     "Angelique Kerber", "Julia Grabher", "Lilly Tagger", "Sinja Kraus", "Sebastian Ofner", "Lucas Miedler", "Jürgen Melzer",
-        "Lukas Neumayer", "Filip Misolic", "Joel Schwärzler"]; //22
+        "Lukas Neumayer", "Filip Misolic", "Joel Schwärzler"]; //22 normal citizens
 let nobles = ["Roger Federer", "Serena Williams", "Novak Djokovic", "Maria Sharapova", "Rafael Nadal", "Venus Williams",
-"Stanislas Wawrinka", "Steffi Graf", "Dominik Thiem", "Sir Andy Murray"]; // 10
+"Stanislas Wawrinka", "Steffi Graf", "Dominik Thiem", "Sir Andy Murray"]; // 10 nobles
 
 citizens = shuffleArray(citizens);
 nobles = shuffleArray(nobles);
